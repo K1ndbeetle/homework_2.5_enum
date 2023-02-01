@@ -19,6 +19,6 @@ public enum BodyTypes {
 
     @Override
     public String toString() {
-        return "Тип кузова: " + bodyTypes;
+        return "Тип кузова: " + bodyTypes + ".";
     }
 }

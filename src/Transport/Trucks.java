@@ -1,14 +1,36 @@
 package Transport;
 
 import Driver.DriverC;
+import Transport.enums.LoadType;
 
 public class Trucks extends Transport <DriverC> {
+
+    private LoadType loadTypes;
 
     public Trucks(String brand,
                   String model,
                   double engineVolume,
-                  DriverC driver) {
+                  DriverC driver,
+                  LoadType loadTypes) {
         super(brand, model, engineVolume, driver);
+        this.loadTypes = loadTypes;
+    }
+
+    public LoadType getLoadTypes() {
+        return loadTypes;
+    }
+
+    public void setLoadTypes(LoadType loadTypes) {
+        this.loadTypes = loadTypes;
+    }
+
+    @Override
+    public void printType() {
+        if (loadTypes == null) {
+            System.out.println("Данных по транспортному средству недостаточно.");
+        } else {
+            System.out.println("Грузовой автомобиль " + getBrand() + " " + getModel() + ". " + loadTypes);
+        }
     }
 
 

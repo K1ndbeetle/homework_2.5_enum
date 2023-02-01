@@ -5,6 +5,9 @@ import Transport.Bus;
 import Transport.Car;
 import Transport.Transport;
 import Transport.Trucks;
+import Transport.enums.BodyTypes;
+import Transport.enums.CapacityType;
+import Transport.enums.LoadType;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,25 +17,29 @@ public class Main {
                 "Audi",
                 "A8 50 L TDI quattro",
                 3.0,
-                driverB);
+                driverB,
+                BodyTypes.SEDAN);
 
         Car carBmw = new Car(
                 "BMW",
                 "Z8",
                 3.0,
-                driverB);
+                driverB,
+                BodyTypes.COUPE);
 
         Car carKia = new Car(
                 "Kia",
                 "Sportage 4-го поколения",
                 2.4,
-                driverB);
+                driverB,
+                BodyTypes.SUV);
 
         Car carHyundai = new Car(
                 "Hyundai",
                 "Avante",
                 1.6,
-                driverB);
+                driverB,
+                null);
 
         printInfo(carAudi);
         printInfo(carBmw);
@@ -46,25 +53,29 @@ public class Main {
                 "Daewoo",
                 "BS 106",
                 6.5,
-                driverD);
+                driverD,
+                null);
 
         Bus busHiger = new Bus(
                 "Higer",
                 "KLQ 6122B",
                 10,
-                driverD);
+                driverD,
+                CapacityType.BIG);
 
         Bus busSetra = new Bus(
                 "Setra",
                 "S215 HD",
                 8,
-                driverD);
+                driverD,
+                CapacityType.GREAT);
 
         Bus busVolvo = new Bus(
                 "Volvo",
                 "9500",
                 7.7,
-                driverD);
+                driverD,
+                CapacityType.LITTLE);
 
         printInfo(busDaewoo);
         printInfo(busHiger);
@@ -78,30 +89,53 @@ public class Main {
                 "Man",
                 "TGX",
                 12.4,
-                driverC);
+                driverC,
+                LoadType.N1);
 
         Trucks trucksScania = new Trucks(
                 "Scania",
                 "XT",
                 16,
-                driverC);
+                driverC,
+                null);
 
         Trucks trucksTatra = new Trucks(
                 "Tatra",
                 "T815",
                 12.7,
-                driverC);
+                driverC,
+                LoadType.N2);
 
         Trucks trucksRenault = new Trucks(
                 "Renault",
                 "Magnum",
                 12.8,
-                driverC);
+                driverC,
+                LoadType.N3);
 
         printInfo(trucksMan);
         printInfo(trucksScania);
         printInfo(trucksTatra);
         printInfo(trucksRenault);
+        System.out.println();
+
+        carAudi.printType();
+        carBmw.printType();
+        carKia.printType();
+        carHyundai.printType();
+        System.out.println();
+
+        busDaewoo.printType();
+        busHiger.printType();
+        busSetra.printType();
+        busVolvo.printType();
+        System.out.println();
+
+        trucksMan.printType();
+        trucksScania.printType();
+        trucksTatra.printType();
+        trucksRenault.printType();
+        System.out.println();
     }
 
     public static void printInfo(Transport<?> transport){

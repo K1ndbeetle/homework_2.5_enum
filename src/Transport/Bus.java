@@ -1,14 +1,36 @@
 package Transport;
 
 import Driver.DriverD;
+import Transport.enums.CapacityType;
 
 public class Bus extends Transport <DriverD> {
+
+    private CapacityType capacityType;
 
     public Bus(String brand,
                String model,
                double engineVolume,
-               DriverD driver) {
+               DriverD driver,
+               CapacityType capacityType) {
         super(brand, model, engineVolume, driver);
+        this.capacityType = capacityType;
+    }
+
+    public CapacityType getCapacityType() {
+        return capacityType;
+    }
+
+    public void setCapacityType(CapacityType capacityType) {
+        this.capacityType = capacityType;
+    }
+
+    @Override
+    public void printType() {
+        if (capacityType == null) {
+            System.out.println("Данных по транспортному средству недостаточно.");
+        } else {
+            System.out.println("Автобус " + getBrand() + " " + getModel() + ". " + capacityType);
+        }
     }
 
     @Override
@@ -36,3 +58,4 @@ public class Bus extends Transport <DriverD> {
         System.out.println("Максимальная скорость у автобуса " + getBrand() + getModel());
     }
 }
+
