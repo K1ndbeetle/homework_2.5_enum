@@ -49,6 +49,8 @@ public abstract class Transport <T extends Driver> implements Competing {
         } else this.engineVolume = engineVolume;
     }
 
+    public abstract void printType();
+
     public abstract void startMove();
 
     public abstract void finishMove();
